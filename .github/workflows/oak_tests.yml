@@ -1,0 +1,27 @@
+name: oak_tests
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      REDIS_URL: ${{ secrets.REDIS_URL }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "rlty-oak-test"
+          heroku_email: ${{secrets.HEROKU_API_KEY}}
+          appdir: "oak"
+
+      - name: Run tests
+        run: |
+          cd oak
+          npm install
+          npm run test

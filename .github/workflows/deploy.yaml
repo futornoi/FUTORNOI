@@ -1,0 +1,27 @@
+name: auto_deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Release API
+        uses: akhileshns/heroku-deploy@v3.0.4
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "rlty-oak-staging"
+          heroku_email: ${{secrets.HEROKU_API_KEY}}
+          appdir: "oak"
+
+      - name: Release NextJS app
+        uses: akhileshns/heroku-deploy@v3.0.4
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "rlty-rose-staging"
+          heroku_email: ${{secrets.HEROKU_API_KEY}}
+          appdir: "rose"

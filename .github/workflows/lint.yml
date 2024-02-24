@@ -1,0 +1,14 @@
+name: lint
+
+on: [push]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Install NPM dependencies
+        run: npm install --legacy-peer-deps
+      - name: Run lint
+        run: npm run lint
