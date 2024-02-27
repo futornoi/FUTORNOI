@@ -1,20 +1,12 @@
-import clsx from "clsx"
-import { useState } from "react"
-import classes from "./app.module.scss"
+import "@styles/styles.scss"
+import { Button } from "@ui/buttons"
 
 function App() {
-  const [active, setActive] = useState(0)
-
-  return (
-    <div
-      onClick={() => setActive(prev => prev + 1)}
-      className={clsx(classes.app, {
-        [classes.active]: active % 2 === 0,
-      })}
-    >
-      Hello
-    </div>
-  )
+    return (
+        <div>
+            <Button />
+        </div>
+    )
 }
 
 export default App

@@ -3,9 +3,11 @@
   "trailingComma": "all",
   "arrowParens": "avoid",
   "printWidth": 100,
-  "tabWidth": 2,
+  "tabWidth": 4,
   "useTabs": false,
   "jsxSingleQuote": false,
+  "bracketSpacing": true,
+  "endOfLine": "lf",
   "importOrder": [
     "<THIRD_PARTY_MODULES>",
     "^@app/(.*)$",
