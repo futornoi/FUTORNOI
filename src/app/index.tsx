@@ -1,13 +1,12 @@
-
-import {Button}  from '@ui/buttons'
-import '@styles/styles.scss'
+import "@styles/styles.scss"
+import { Button } from "@ui/buttons"
 
 function App() {
-  return <div>
-
-<Button/>
-
-  </div>
+    return (
+        <div>
+            <Button />
+        </div>
+    )
 }
 
 export default App
